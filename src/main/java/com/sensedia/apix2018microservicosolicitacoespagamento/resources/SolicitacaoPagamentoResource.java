@@ -20,7 +20,7 @@ import com.google.api.client.http.HttpStatusCodes;
 import com.sensedia.apix2018microservicosolicitacoespagamento.domain.SolicitacaoPagamento;
 import com.sensedia.apix2018microservicosolicitacoespagamento.dto.request.SolicitacaoPagamentoRequest;
 import com.sensedia.apix2018microservicosolicitacoespagamento.dto.response.SolicitacaoPagamentoResponse;
-import com.sensedia.apix2018microservicosolicitacoespagamento.services.impl.SolicitacaoPagamentoService;
+import com.sensedia.apix2018microservicosolicitacoespagamento.services.ISolicitacaoPagamentoService;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -33,7 +33,7 @@ import io.swagger.annotations.ApiResponses;
 public class SolicitacaoPagamentoResource {
 
 	@Autowired
-	private SolicitacaoPagamentoService solicitacaoPagamentoService;
+	private ISolicitacaoPagamentoService solicitacaoPagamentoService;
 
 	@PostMapping
 	@ApiOperation(value = "Retorna a solicitação de pagamento com base no ID", response = SolicitacaoPagamentoResponse.class)
