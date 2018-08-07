@@ -1,0 +1,8 @@
+metadata:
+  namespace: commons
+  name: ${project.artifactId}
+data:
+  datastore.namespace: apix2018
+  datastore.kind: solicitacoes
+  pubsub.topic: pagamentos-out
+  pubsub.subsname: pagamentos-in
