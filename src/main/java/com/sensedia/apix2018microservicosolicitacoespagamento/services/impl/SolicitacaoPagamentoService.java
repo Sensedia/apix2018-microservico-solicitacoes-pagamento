@@ -61,17 +61,4 @@ public class SolicitacaoPagamentoService implements ISolicitacaoPagamentoService
 
 	}
 
-	@Override
-	public SolicitacaoPagamento buscar(final Long id) {
-
-		LOGGER.info("Buscando ID: {}", id);
-
-		SolicitacaoPagamento solicitacaoPagamento = repository.buscar(id);
-
-		LOGGER.info("Recuperado {}", solicitacaoPagamento);
-
-		return solicitacaoPagamento;
-
-	}
-
 }

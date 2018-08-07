@@ -1,15 +1,11 @@
 package com.sensedia.apix2018microservicosolicitacoespagamento.resources;
 
-import java.util.Objects;
-
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -48,27 +44,9 @@ public class SolicitacaoPagamentoResource {
 		Long id = solicitacaoPagamentoService.criar(domain);
 
 		HttpHeaders headers = new HttpHeaders();
-		headers.setLocation(builder.path("/v1/solicitacoes/{id}").buildAndExpand(id).toUri());
+		headers.setLocation(builder.path("solicitacoes/{id}").buildAndExpand(id).toUri());
 
 		return new ResponseEntity<>(SolicitacaoPagamentoResponse.toResponse(id, domain), headers, HttpStatus.CREATED);
-
-	}
-
-	@GetMapping(value = "/{id}")
-	@ApiOperation(value = "Retorna a solicitação de pagamento com base no ID", response = SolicitacaoPagamentoResponse.class)
-	@ApiResponses(value = {
-			@ApiResponse(code = HttpStatusCodes.STATUS_CODE_OK, message = "Registro encontrado com sucesso"),
-			@ApiResponse(code = HttpStatusCodes.STATUS_CODE_NOT_FOUND, message = "Registro nao encontrado"),
-			@ApiResponse(code = HttpStatusCodes.STATUS_CODE_SERVER_ERROR, message = "Erro inesperado ocorreu no servidor") })
-	public ResponseEntity<SolicitacaoPagamentoResponse> buscar(@PathVariable Long id) {
-
-		SolicitacaoPagamento domain = solicitacaoPagamentoService.buscar(id);
-
-		if (Objects.isNull(domain)) {
-			return ResponseEntity.notFound().build();
-		}
-
-		return ResponseEntity.ok(SolicitacaoPagamentoResponse.toResponse(id, domain));
 
 	}
 
