@@ -1,8 +1,8 @@
 metadata:
-  namespace: commons
+  namespace: # setar o namespace do GCP
   name: ${project.artifactId}
 data:
-  datastore.namespace: apix2018
-  datastore.kind: solicitacoes
+  datastore.namespace: # setar o namespace do Datastore (GCP)
+  datastore.kind: # setar o kind do Datastore (GCP)
   pubsub.topic: pagamentos-out
   pubsub.subsname: pagamentos-in

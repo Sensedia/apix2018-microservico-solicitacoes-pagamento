@@ -99,7 +99,7 @@
 				<configuration>
 					<images>
 						<image>
-							<name>sensedia/teste-${project.artifactId}</name>
+							<name><!-- Conta do DockerHub  -->/teste-${project.artifactId}</name>
 							<build>
 								<from>gcr.io/google-appengine/openjdk:8</from>
 								<entryPoint>java -jar /app/${project.build.finalName}.jar</entryPoint>
